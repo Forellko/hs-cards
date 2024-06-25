@@ -1,6 +1,7 @@
 .main {
   flex-grow: 4;
   width: 500px;
+  margin-top: 20px;
 }
 
 .grid {
