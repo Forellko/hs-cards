@@ -38,7 +38,9 @@ function Addition() {
         }}
       >
         {additions.map((addition) => (
-          <MenuItem value={addition}>{addition}</MenuItem>
+          <MenuItem key={addition} value={addition}>
+            {addition}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>

@@ -2,7 +2,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
 
 type TClass =
-  | 'Все классы'
+  | 'Все'
   | 'Рыцарь смерти'
   | 'Охотник на демонов'
   | 'Друид'
@@ -13,7 +13,7 @@ type TClass =
   | 'Разбойник';
 
 const classes: TClass[] = [
-  'Все классы',
+  'Все',
   'Рыцарь смерти',
   'Охотник на демонов',
   'Друид',
@@ -25,7 +25,7 @@ const classes: TClass[] = [
 ];
 
 function Class() {
-  const [heroClass, setHerroClass] = useState<TClass>('Все классы');
+  const [heroClass, setHerroClass] = useState<TClass>('Все');
 
   return (
     <FormControl
@@ -42,7 +42,9 @@ function Class() {
         onChange={(event) => setHerroClass(event.target.value as TClass)}
       >
         {classes.map((classEl) => (
-          <MenuItem value={classEl}>{classEl}</MenuItem>
+          <MenuItem key={classEl} value={classEl}>
+            {classEl}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>
