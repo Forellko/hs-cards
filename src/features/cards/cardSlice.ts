@@ -56,7 +56,15 @@ export const cardsSlice = createSlice({
   },
 });
 
-export const { setAddition } = cardsSlice.actions;
+export const {
+  setAddition,
+  setCardType,
+  setClassHero,
+  setCost,
+  setCreationType,
+  setRarity,
+  setSpellsSchool,
+} = cardsSlice.actions;
 
 export const selectAddition = (state: RootState) => state.cards.addition;
 
