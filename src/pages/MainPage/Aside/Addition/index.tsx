@@ -1,21 +1,47 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useState } from 'react';
+
+type TAddition =
+  | 'Все'
+  | 'Мастерская Чудастера'
+  | 'Битва в Бесплодных землях'
+  | 'Титаны'
+  | 'Фестиваль легенд'
+  | 'Основные наборы';
+
+const additions: TAddition[] = [
+  'Все',
+  'Мастерская Чудастера',
+  'Битва в Бесплодных землях',
+  'Титаны',
+  'Фестиваль легенд',
+  'Основные наборы',
+];
 
 function Addition() {
+  const [addition, setAddition] = useState<TAddition>('Все');
+
   return (
     <div>
       <div>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Дополнения</InputLabel>
+        <FormControl
+          fullWidth
+          sx={{ m: 1, maxWidth: '300px', minWidth: '300px' }}
+          size="small"
+        >
+          <InputLabel id="demo-select-small-label">Дополнения</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={0}
+            labelId="demo-select-small-label"
+            id="demo-select-small"
+            value={addition}
             label="Дополнения"
-            onChange={() => {}}
+            onChange={(event) => {
+              setAddition(event.target.value as TAddition);
+            }}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            {additions.map((addition) => (
+              <MenuItem value={addition}>{addition}</MenuItem>
+            ))}
           </Select>
         </FormControl>
       </div>
