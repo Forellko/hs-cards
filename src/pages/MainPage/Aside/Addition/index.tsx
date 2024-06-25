@@ -22,30 +22,26 @@ function Addition() {
   const [addition, setAddition] = useState<TAddition>('Все');
 
   return (
-    <div>
-      <div>
-        <FormControl
-          fullWidth
-          sx={{ m: 1, maxWidth: '300px', minWidth: '300px' }}
-          size="small"
-        >
-          <InputLabel id="demo-select-small-label">Дополнения</InputLabel>
-          <Select
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            value={addition}
-            label="Дополнения"
-            onChange={(event) => {
-              setAddition(event.target.value as TAddition);
-            }}
-          >
-            {additions.map((addition) => (
-              <MenuItem value={addition}>{addition}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
-    </div>
+    <FormControl
+      fullWidth
+      sx={{ maxWidth: '300px', minWidth: '300px' }}
+      size="small"
+    >
+      <InputLabel id="demo-select-small-label">Дополнения</InputLabel>
+      <Select
+        labelId="demo-select-small-label"
+        id="demo-select-small"
+        value={addition}
+        label="Дополнения"
+        onChange={(event) => {
+          setAddition(event.target.value as TAddition);
+        }}
+      >
+        {additions.map((addition) => (
+          <MenuItem value={addition}>{addition}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 
