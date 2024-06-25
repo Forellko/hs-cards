@@ -1,22 +1,48 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useState } from 'react';
 
-function CardType() {
+type TCardType =
+  | 'Все'
+  | 'Герой'
+  | 'Существо'
+  | 'Заклинание'
+  | 'Оружие'
+  | 'Область';
+
+const cardTypes: TCardType[] = [
+  'Все',
+  'Герой',
+  'Существо',
+  'Заклинание',
+  'Оружие',
+  'Область',
+];
+
+function Cost() {
+  const [cardType, setCardType] = useState<TCardType>('Все');
+
   return (
-    <FormControl fullWidth>
+    <FormControl
+      fullWidth
+      sx={{ maxWidth: '300px', minWidth: '300px' }}
+      size="small"
+    >
       <InputLabel id="demo-simple-select-label">Тип карты</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={0}
+        value={cardType}
         label="Тип карты"
-        onChange={() => {}}
+        onChange={(event) => setCardType(event.target.value as TCardType)}
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {cardTypes.map((cardType) => (
+          <MenuItem key={cardType} value={cardType}>
+            {cardType}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
 }
 
-export default CardType;
+export default Cost;
