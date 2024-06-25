@@ -1,4 +1,4 @@
-type TClass =
+type TClassHero =
   | 'Все'
   | 'Рыцарь смерти'
   | 'Охотник на демонов'
@@ -9,4 +9,4 @@ type TClass =
   | 'Жрец'
   | 'Разбойник';
 
-export default TClass;
+export default TClassHero;

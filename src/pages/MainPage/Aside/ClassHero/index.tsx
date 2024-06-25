@@ -1,8 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-import TClass from 'types/Class';
+import TClassHero from 'types/ClassHero';
 
-const classes: TClass[] = [
+const classes: TClassHero[] = [
   'Все',
   'Рыцарь смерти',
   'Охотник на демонов',
@@ -14,8 +14,8 @@ const classes: TClass[] = [
   'Разбойник',
 ];
 
-function Class() {
-  const [heroClass, setHerroClass] = useState<TClass>('Все');
+function ClassHero() {
+  const [heroClass, setHerroClass] = useState<TClassHero>('Все');
 
   return (
     <FormControl
@@ -29,7 +29,7 @@ function Class() {
         id="demo-simple-select"
         value={heroClass}
         label="Класс"
-        onChange={(event) => setHerroClass(event.target.value as TClass)}
+        onChange={(event) => setHerroClass(event.target.value as TClassHero)}
       >
         {classes.map((classEl) => (
           <MenuItem key={classEl} value={classEl}>
@@ -41,4 +41,4 @@ function Class() {
   );
 }
 
-export default Class;
+export default ClassHero;

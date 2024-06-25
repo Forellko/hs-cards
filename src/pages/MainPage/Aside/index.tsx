@@ -1,6 +1,6 @@
 import Addition from './Addition';
 import CardType from './CardType';
-import Class from './Class';
+import ClassHero from './ClassHero';
 import Cost from './Cost';
 import CreationType from './CreationType';
 import Rarity from './Rarity';
@@ -11,7 +11,7 @@ function Aside() {
   return (
     <aside className={style.aside}>
       <Addition />
-      <Class />
+      <ClassHero />
       <Cost />
       <CardType />
       <CreationType />
