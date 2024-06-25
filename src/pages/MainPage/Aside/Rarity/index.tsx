@@ -1,19 +1,45 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useState } from 'react';
+
+type TRarity =
+  | 'Все'
+  | 'Обычная'
+  | 'Бесплатная'
+  | 'Редкая'
+  | 'Эпическая'
+  | 'Легендарная';
+
+const rarityes: TRarity[] = [
+  'Все',
+  'Обычная',
+  'Бесплатная',
+  'Редкая',
+  'Эпическая',
+  'Легендарная',
+];
 
 function Rarity() {
+  const [rarity, setRarity] = useState<TRarity>('Все');
+
   return (
-    <FormControl fullWidth>
+    <FormControl
+      fullWidth
+      sx={{ maxWidth: '300px', minWidth: '300px' }}
+      size="small"
+    >
       <InputLabel id="demo-simple-select-label">Редкость</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={0}
+        value={rarity}
         label="Редкость"
-        onChange={() => {}}
+        onChange={(event) => setRarity(event.target.value as TRarity)}
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {rarityes.map((rarity) => (
+          <MenuItem key={rarity} value={rarity}>
+            {rarity}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
