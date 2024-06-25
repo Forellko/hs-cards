@@ -8,7 +8,7 @@ function Header() {
   return (
     <header>
       <div className={style.header}>
-        <h1 className={style.header_h}>HS-CARD</h1>
+        <h1 className={style.header_h}>HS-CARDS</h1>
         <div className={style.search}>
           <div className={style.search_icon}>
             <SearchIcon />
