@@ -1,0 +1,10 @@
+.aside {
+  flex-grow: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.select {
+  margin-top: 40px;
+}
