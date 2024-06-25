@@ -1,6 +1,8 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { selectAddition } from 'features/cards/cardSlice';
 import TAddition from 'types/Addition';
+import { setAddition } from 'features/cards/cardSlice';
 
 const additions: TAddition[] = [
   'Все',
@@ -12,8 +14,8 @@ const additions: TAddition[] = [
 ];
 
 function Addition() {
-  const [addition, setAddition] = useState<TAddition>('Все');
-
+  const additionSelect = useAppSelector(selectAddition);
+  const dispatch = useAppDispatch();
   return (
     <FormControl
       fullWidth
@@ -24,10 +26,10 @@ function Addition() {
       <Select
         labelId="demo-select-small-label"
         id="demo-select-small"
-        value={addition}
+        value={additionSelect}
         label="Дополнения"
         onChange={(event) => {
-          setAddition(event.target.value as TAddition);
+          dispatch(setAddition(event.target.value as TAddition));
         }}
       >
         {additions.map((addition) => (
