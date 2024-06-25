@@ -1,19 +1,51 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useState } from 'react';
+
+type TSpellsSchool =
+  | 'Все'
+  | 'Тайная магия'
+  | 'Огонь'
+  | 'Лед'
+  | 'Природа'
+  | 'Свет'
+  | 'Тьма'
+  | 'Скверна';
+
+const spellsSchools: TSpellsSchool[] = [
+  'Все',
+  'Тайная магия',
+  'Огонь',
+  'Лед',
+  'Природа',
+  'Свет',
+  'Тьма',
+  'Скверна',
+];
 
 function SpellsSchool() {
+  const [spellsSchool, setSpellsSchool] = useState<TSpellsSchool>('Все');
+
   return (
-    <FormControl fullWidth>
+    <FormControl
+      fullWidth
+      sx={{ maxWidth: '300px', minWidth: '300px' }}
+      size="small"
+    >
       <InputLabel id="demo-simple-select-label">Школа заклинаний</InputLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={0}
+        value={spellsSchool}
         label="Школа заклинаний"
-        onChange={() => {}}
+        onChange={(event) =>
+          setSpellsSchool(event.target.value as TSpellsSchool)
+        }
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {spellsSchools.map((spellsSchool) => (
+          <MenuItem key={spellsSchool} value={spellsSchool}>
+            {spellsSchool}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
