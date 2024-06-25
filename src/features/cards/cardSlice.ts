@@ -35,6 +35,24 @@ export const cardsSlice = createSlice({
     setAddition: (state, action: PayloadAction<TAddition>) => {
       state.addition = action.payload;
     },
+    setCardType: (state, action: PayloadAction<TCardType>) => {
+      state.cardType = action.payload;
+    },
+    setClassHero: (state, action: PayloadAction<TClassHero>) => {
+      state.classHero = action.payload;
+    },
+    setCost: (state, action: PayloadAction<TCost>) => {
+      state.cost = action.payload;
+    },
+    setCreationType: (state, action: PayloadAction<TCreationType>) => {
+      state.creationType = action.payload;
+    },
+    setRarity: (state, action: PayloadAction<TRarity>) => {
+      state.rarity = action.payload;
+    },
+    setSpellsSchool: (state, action: PayloadAction<TSpellsSchool>) => {
+      state.spellsSchool = action.payload;
+    },
   },
 });
 
