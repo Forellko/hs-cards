@@ -1,19 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-
-type TCreationType =
-  | 'Все'
-  | 'Демон'
-  | 'Дракон'
-  | 'Зверь'
-  | 'Механизм'
-  | 'Мурлок'
-  | 'Нага'
-  | 'Нежить'
-  | 'Пират'
-  | 'Свинобраз'
-  | 'Тотем'
-  | 'Элементаль';
+import TCreationType from 'types/CreationType';
 
 const creationTypes: TCreationType[] = [
   'Все',

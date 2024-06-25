@@ -1,13 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-
-type TRarity =
-  | 'Все'
-  | 'Обычная'
-  | 'Бесплатная'
-  | 'Редкая'
-  | 'Эпическая'
-  | 'Легендарная';
+import TRarity from 'types/Rarity';
 
 const rarityes: TRarity[] = [
   'Все',

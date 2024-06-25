@@ -1,16 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-
-type TClass =
-  | 'Все'
-  | 'Рыцарь смерти'
-  | 'Охотник на демонов'
-  | 'Друид'
-  | 'Охотник'
-  | 'Маг'
-  | 'Паладин'
-  | 'Жрец'
-  | 'Разбойник';
+import TClass from 'types/Class';
 
 const classes: TClass[] = [
   'Все',

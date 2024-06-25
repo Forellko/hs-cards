@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState
+// const initialState
 
-
-export const cardsSlice = createSlice({name: 'cards'})
+// export const cardsSlice = createSlice({name: 'cards'})

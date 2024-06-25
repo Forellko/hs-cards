@@ -1,13 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-
-type TAddition =
-  | 'Все'
-  | 'Мастерская Чудастера'
-  | 'Битва в Бесплодных землях'
-  | 'Титаны'
-  | 'Фестиваль легенд'
-  | 'Основные наборы';
+import TAddition from 'types/Addition';
 
 const additions: TAddition[] = [
   'Все',

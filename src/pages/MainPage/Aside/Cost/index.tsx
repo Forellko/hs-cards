@@ -1,19 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-
-type TCost =
-  | 'Все'
-  | '0'
-  | '1'
-  | '2'
-  | '3'
-  | '4'
-  | '5'
-  | '6'
-  | '7'
-  | '8'
-  | '9'
-  | '10+';
+import TCost from 'types/Cost';
 
 const costs: TCost[] = [
   'Все',

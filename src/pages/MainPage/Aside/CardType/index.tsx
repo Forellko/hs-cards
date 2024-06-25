@@ -1,13 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-
-type TCardType =
-  | 'Все'
-  | 'Герой'
-  | 'Существо'
-  | 'Заклинание'
-  | 'Оружие'
-  | 'Область';
+import TCardType from 'types/CardType';
 
 const cardTypes: TCardType[] = [
   'Все',

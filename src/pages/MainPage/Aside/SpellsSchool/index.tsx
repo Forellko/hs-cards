@@ -1,15 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-
-type TSpellsSchool =
-  | 'Все'
-  | 'Тайная магия'
-  | 'Огонь'
-  | 'Лед'
-  | 'Природа'
-  | 'Свет'
-  | 'Тьма'
-  | 'Скверна';
+import TSpellsSchool from 'types/SpellsSchool';
 
 const spellsSchools: TSpellsSchool[] = [
   'Все',
