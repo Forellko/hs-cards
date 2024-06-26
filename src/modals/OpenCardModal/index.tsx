@@ -31,7 +31,6 @@ function OpenCardModal({ open, handleClose, card }: Props) {
       >
         <Box sx={stylesx}>
           <img src={card.imageURL} alt="card" />
-          <Button onClick={() => handleClose()}>Закрыть</Button>
         </Box>
       </Modal>
     </div>

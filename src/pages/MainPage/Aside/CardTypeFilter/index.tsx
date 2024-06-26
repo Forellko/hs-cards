@@ -1,5 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { selectCardType, setCardType } from 'features/cards/cardSlice';
 import TCardType from 'types/CardType';
 
 const cardTypes: TCardType[] = [
@@ -12,7 +13,8 @@ const cardTypes: TCardType[] = [
 ];
 
 function CardType() {
-  const [cardType, setCardType] = useState<TCardType>('Все');
+  const cardTypeSelect = useAppSelector(selectCardType);
+  const dispatch = useAppDispatch();
 
   return (
     <FormControl
@@ -24,9 +26,11 @@ function CardType() {
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        value={cardType}
+        value={cardTypeSelect}
         label="Тип карты"
-        onChange={(event) => setCardType(event.target.value as TCardType)}
+        onChange={(event) =>
+          dispatch(setCardType(event.target.value as TCardType))
+        }
       >
         {cardTypes.map((cardType) => (
           <MenuItem key={cardType} value={cardType}>
