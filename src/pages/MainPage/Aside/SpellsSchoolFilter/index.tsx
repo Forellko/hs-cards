@@ -1,4 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { selectSpellsSchool, setSpellsSchool } from 'features/cards/cardSlice';
 import { useState } from 'react';
 import TSpellsSchool from 'types/SpellsSchool';
 
@@ -14,8 +16,8 @@ const spellsSchools: TSpellsSchool[] = [
 ];
 
 function SpellsSchool() {
-  const [spellsSchool, setSpellsSchool] = useState<TSpellsSchool>('Все');
-
+  const spellsSchool = useAppSelector(selectSpellsSchool);
+  const dispatch = useAppDispatch();
   return (
     <FormControl
       fullWidth
@@ -29,7 +31,7 @@ function SpellsSchool() {
         value={spellsSchool}
         label="Школа заклинаний"
         onChange={(event) =>
-          setSpellsSchool(event.target.value as TSpellsSchool)
+          dispatch(setSpellsSchool(event.target.value as TSpellsSchool))
         }
       >
         {spellsSchools.map((spellsSchool) => (
