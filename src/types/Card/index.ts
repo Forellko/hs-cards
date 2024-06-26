@@ -7,8 +7,9 @@ import TRarity from 'types/Rarity';
 import TSpellsSchool from 'types/SpellsSchool';
 
 interface ICard {
-  id: string;
+  id: number;
   name: string;
+  imageURL: string;
   description: string;
   addition: TAddition;
   cardType: TCardType;
