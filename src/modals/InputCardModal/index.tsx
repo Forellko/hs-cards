@@ -65,6 +65,19 @@ function InputCardModal({ open, handleClose }: Props) {
 
     await CreateCard(card);
     dispatch(getAllCardsThunk());
+    onClose();
+  };
+
+  const onClose = () => {
+    setName('');
+    setImageURL('');
+    setAddition('Все');
+    setHerroClass('Все');
+    setCost('Все');
+    setCardType('Все');
+    setCreationType('Все');
+    setSpellsSchool('Все');
+    setRarity('Все');
     handleClose();
   };
 
@@ -72,7 +85,7 @@ function InputCardModal({ open, handleClose }: Props) {
     <div>
       <Modal
         open={open}
-        onClose={() => handleClose()}
+        onClose={() => onClose()}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
