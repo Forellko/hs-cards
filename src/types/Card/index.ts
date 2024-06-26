@@ -10,7 +10,6 @@ interface ICard {
   id?: number;
   name: string;
   imageURL: string;
-  description: string;
   addition: TAddition;
   cardType: TCardType;
   classHero: TClassHero;

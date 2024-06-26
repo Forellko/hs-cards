@@ -1,4 +1,4 @@
-import { Box, Modal, TextField } from '@mui/material';
+import { Box, Button, Modal, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import Addition from './AdditionInput';
 import TAddition from 'types/Addition';
@@ -15,6 +15,8 @@ import TSpellsSchool from 'types/SpellsSchool';
 import SpellsSchool from './SpellsSchoolInput';
 import TRarity from 'types/Rarity';
 import Rarity from './RarityInput';
+import ICard from 'types/Card';
+import { CreateCard } from 'api/CardAPI/CreateCard';
 
 const stylebx = {
   position: 'absolute' as 'absolute',
@@ -35,6 +37,7 @@ interface Props {
 
 function InputCardModal({ open, handleClose }: Props) {
   const [name, setName] = useState('');
+  const [imageURL, setImageURL] = useState('');
   const [addition, setAddition] = useState<TAddition>('Все');
   const [heroClass, setHerroClass] = useState<TClassHero>('Все');
   const [cost, setCost] = useState<TCost>('Все');
@@ -42,6 +45,24 @@ function InputCardModal({ open, handleClose }: Props) {
   const [creationType, setCreationType] = useState<TCreationType>('Все');
   const [spellsSchool, setSpellsSchool] = useState<TSpellsSchool>('Все');
   const [rarity, setRarity] = useState<TRarity>('Все');
+
+  const createCard = () => {
+    const card: ICard = {
+      addition,
+      cardType,
+      classHero: heroClass,
+      cost,
+      creationType,
+      imageURL,
+      name,
+      rarity,
+      spellsSchool,
+    };
+
+    CreateCard(card);
+
+    console.log(card);
+  };
 
   return (
     <div>
@@ -60,6 +81,14 @@ function InputCardModal({ open, handleClose }: Props) {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+
+            <TextField
+              id="standard-basic"
+              label="URL картинки"
+              variant="standard"
+              value={imageURL}
+              onChange={(e) => setImageURL(e.target.value)}
+            />
             <Addition addition={addition} setAddition={setAddition} />
             <ClassHero heroClass={heroClass} setHerroClass={setHerroClass} />
             <Cost cost={cost} setCost={setCost} />
@@ -73,6 +102,9 @@ function InputCardModal({ open, handleClose }: Props) {
               setSpellsSchool={setSpellsSchool}
             />
             <Rarity rarity={rarity} setRarity={setRarity} />
+            <Button variant="contained" onClick={createCard}>
+              Создать
+            </Button>
           </div>
         </Box>
       </Modal>
