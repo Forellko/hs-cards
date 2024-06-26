@@ -9,6 +9,7 @@ import {
   selectCost,
   selectCreationType,
   selectRarity,
+  selectSearch,
   selectSpellsSchool,
 } from 'features/cards/cardSlice';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
@@ -28,6 +29,7 @@ function Main() {
   const creationType = useAppSelector(selectCreationType);
   const rarity = useAppSelector(selectRarity);
   const spellsSchool = useAppSelector(selectSpellsSchool);
+  const search = useAppSelector(selectSearch);
 
   useEffect(() => {
     const filtCards = cards
@@ -45,7 +47,22 @@ function Main() {
       .filter((card) => card.rarity === rarity || rarity === 'Все')
       .filter(
         (card) => card.spellsSchool === spellsSchool || spellsSchool === 'Все'
-      );
+      )
+      .filter((card) => {
+        if (search === '') return true;
+        const splitName = card.name.toLowerCase().split('');
+        const splitSearch = search.toLowerCase().split('');
+        for (let index in splitName) {
+          if (splitName[index] === splitSearch[index]) {
+            if (splitSearch.length - 1 === +index) {
+              return true;
+            }
+          } else {
+            console.log(1);
+            return false;
+          }
+        }
+      });
 
     setFilteredCards(filtCards);
   }, [
@@ -57,6 +74,7 @@ function Main() {
     creationType,
     rarity,
     spellsSchool,
+    search,
   ]);
 
   useEffect(() => {
