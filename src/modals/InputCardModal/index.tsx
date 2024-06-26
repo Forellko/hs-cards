@@ -60,8 +60,7 @@ function InputCardModal({ open, handleClose }: Props) {
     };
 
     CreateCard(card);
-
-    console.log(card);
+    handleClose();
   };
 
   return (

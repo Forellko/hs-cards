@@ -1,5 +1,4 @@
 import style from './style.module.css';
-import hscard from './hscard.png';
 import { useCallback, useEffect, useState } from 'react';
 import ICard from 'types/Card';
 import { GetAllCards } from 'api/CardAPI/GetAllCards';
@@ -28,12 +27,6 @@ function Main() {
               className={style.card}
             />
           ))}
-        <img src={hscard} alt="card" className={style.card} />
-        <img src={hscard} alt="card" className={style.card} />
-        <img src={hscard} alt="card" className={style.card} />
-        <img src={hscard} alt="card" className={style.card} />
-        <img src={hscard} alt="card" className={style.card} />
-        <img src={hscard} alt="card" className={style.card} />
       </div>
     </div>
   );

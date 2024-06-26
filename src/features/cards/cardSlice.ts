@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'app/store';
 import TAddition from 'types/Addition';
+import ICard from 'types/Card';
 import TCardType from 'types/CardType';
 import TClassHero from 'types/ClassHero';
 import TCost from 'types/Cost';
@@ -16,6 +17,7 @@ interface CardState {
   creationType: TCreationType;
   rarity: TRarity;
   spellsSchool: TSpellsSchool;
+  cards: ICard[] | [];
 }
 
 const initialState: CardState = {
@@ -26,6 +28,7 @@ const initialState: CardState = {
   creationType: 'Все',
   rarity: 'Все',
   spellsSchool: 'Все',
+  cards: [],
 };
 
 export const cardsSlice = createSlice({
