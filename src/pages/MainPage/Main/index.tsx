@@ -1,18 +1,13 @@
 import style from './style.module.css';
-import { useCallback, useEffect, useState } from 'react';
-import ICard from 'types/Card';
-import { GetAllCards } from 'api/CardAPI/GetAllCards';
+import { useEffect, useState } from 'react';
+import { getAllCardsThunk, selectCards } from 'features/cards/cardSlice';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
 function Main() {
-  const [cards, setCards] = useState<ICard[]>();
-
-  const getCards = useCallback(async () => {
-    const response = await GetAllCards();
-    setCards(response);
-    console.log(response);
-  }, []);
+  const dispatch = useAppDispatch();
+  const cards = useAppSelector(selectCards);
 
   useEffect(() => {
-    getCards();
+    dispatch(getAllCardsThunk());
   }, []);
 
   return (

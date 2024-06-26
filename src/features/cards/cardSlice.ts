@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { GetAllCards } from 'api/CardAPI/GetAllCards';
 import { RootState } from 'app/store';
 import TAddition from 'types/Addition';
 import ICard from 'types/Card';
@@ -31,6 +32,15 @@ const initialState: CardState = {
   cards: [],
 };
 
+export const getAllCardsThunk = createAsyncThunk(
+  'cards/getAllCards',
+  async () => {
+    const response = await GetAllCards();
+    console.log(response, 'thunk');
+    return response;
+  }
+);
+
 export const cardsSlice = createSlice({
   name: 'cards',
   initialState,
@@ -57,6 +67,12 @@ export const cardsSlice = createSlice({
       state.spellsSchool = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(getAllCardsThunk.fulfilled, (state, action) => {
+      state.cards = action.payload;
+      console.log(action.payload);
+    });
+  },
 });
 
 export const {
@@ -70,5 +86,7 @@ export const {
 } = cardsSlice.actions;
 
 export const selectAddition = (state: RootState) => state.cards.addition;
+
+export const selectCards = (state: RootState) => state.cards.cards;
 
 export default cardsSlice.reducer;

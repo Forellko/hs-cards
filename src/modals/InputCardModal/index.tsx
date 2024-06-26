@@ -17,6 +17,8 @@ import TRarity from 'types/Rarity';
 import Rarity from './RarityInput';
 import ICard from 'types/Card';
 import { CreateCard } from 'api/CardAPI/CreateCard';
+import { useAppDispatch } from 'app/hooks';
+import { getAllCardsThunk } from 'features/cards/cardSlice';
 
 const stylebx = {
   position: 'absolute' as 'absolute',
@@ -46,7 +48,9 @@ function InputCardModal({ open, handleClose }: Props) {
   const [spellsSchool, setSpellsSchool] = useState<TSpellsSchool>('Все');
   const [rarity, setRarity] = useState<TRarity>('Все');
 
-  const createCard = () => {
+  const dispatch = useAppDispatch();
+
+  const createCard = async () => {
     const card: ICard = {
       addition,
       cardType,
@@ -59,7 +63,8 @@ function InputCardModal({ open, handleClose }: Props) {
       spellsSchool,
     };
 
-    CreateCard(card);
+    await CreateCard(card);
+    dispatch(getAllCardsThunk());
     handleClose();
   };
 

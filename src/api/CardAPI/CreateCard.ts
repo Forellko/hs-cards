@@ -7,6 +7,5 @@ export const CreateCard = async (card: ICard) => {
     data: card,
     url: 'http://localhost:8000/card',
   });
-
-  console.log(response);
+  return response;
 };
