@@ -1,4 +1,6 @@
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { selectCost, setCost } from 'features/cards/cardSlice';
 import { useState } from 'react';
 import TCost from 'types/Cost';
 
@@ -18,8 +20,8 @@ const costs: TCost[] = [
 ];
 
 function Cost() {
-  const [cost, setCost] = useState<TCost>('Все');
-
+  const cost = useAppSelector(selectCost);
+  const dispatch = useAppDispatch();
   return (
     <FormControl
       fullWidth
@@ -32,7 +34,7 @@ function Cost() {
         id="demo-simple-select"
         value={cost}
         label="Стоймость"
-        onChange={(event) => setCost(event.target.value as TCost)}
+        onChange={(event) => dispatch(setCost(event.target.value as TCost))}
       >
         {costs.map((cost) => (
           <MenuItem key={cost} value={cost}>
