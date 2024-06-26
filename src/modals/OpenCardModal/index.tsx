@@ -1,4 +1,7 @@
 import { Box, Button, Modal } from '@mui/material';
+import { DeleteCard } from 'api/CardAPI/DeleteCard';
+import { useAppDispatch } from 'app/hooks';
+import { getAllCardsThunk } from 'features/cards/cardSlice';
 import React from 'react';
 import ICard from 'types/Card';
 
@@ -21,6 +24,14 @@ const stylesx = {
 };
 
 function OpenCardModal({ open, handleClose, card }: Props) {
+  const dispatch = useAppDispatch();
+
+  const removeCard = async () => {
+    await DeleteCard(card);
+    dispatch(getAllCardsThunk());
+    handleClose();
+  };
+
   return (
     <div>
       <Modal
@@ -31,6 +42,9 @@ function OpenCardModal({ open, handleClose, card }: Props) {
       >
         <Box sx={stylesx}>
           <img src={card.imageURL} alt="card" />
+          <Button onClick={removeCard} variant="contained" color="error">
+            Удалить
+          </Button>
         </Box>
       </Modal>
     </div>
