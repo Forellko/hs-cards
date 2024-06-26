@@ -3,6 +3,7 @@ import HSImage from './img/hs.png';
 import style from './style.module.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { TextField } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 function Header() {
   return (
@@ -14,6 +15,9 @@ function Header() {
             <SearchIcon />
           </div>
           <TextField id="standard-basic" label="Поиск" variant="standard" />
+        </div>
+        <div className={style.add_icon}>
+          <AddIcon className={style.add_icon_svg} />
         </div>
         <img src={HSImage} alt="hs" />
       </div>

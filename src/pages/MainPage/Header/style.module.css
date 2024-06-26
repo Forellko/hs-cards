@@ -28,3 +28,14 @@
   align-items: center;
   margin-right: 10px;
 }
+
+.add_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.add_icon_svg {
+  transform: scale(2);
+}
