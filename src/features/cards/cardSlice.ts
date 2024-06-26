@@ -19,6 +19,7 @@ interface CardState {
   rarity: TRarity;
   spellsSchool: TSpellsSchool;
   cards: ICard[] | [];
+  search: string;
 }
 
 const initialState: CardState = {
@@ -30,6 +31,7 @@ const initialState: CardState = {
   rarity: 'Все',
   spellsSchool: 'Все',
   cards: [],
+  search: '',
 };
 
 export const getAllCardsThunk = createAsyncThunk(
@@ -65,6 +67,9 @@ export const cardsSlice = createSlice({
     setSpellsSchool: (state, action: PayloadAction<TSpellsSchool>) => {
       state.spellsSchool = action.payload;
     },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getAllCardsThunk.fulfilled, (state, action) => {
@@ -82,6 +87,7 @@ export const {
   setCreationType,
   setRarity,
   setSpellsSchool,
+  setSearch,
 } = cardsSlice.actions;
 
 export const selectAddition = (state: RootState) => state.cards.addition;
@@ -93,6 +99,8 @@ export const selectCreationType = (state: RootState) =>
 export const selectRarity = (state: RootState) => state.cards.rarity;
 export const selectSpellsSchool = (state: RootState) =>
   state.cards.spellsSchool;
+
+export const selectSearch = (state: RootState) => state.cards.search;
 
 export const selectCards = (state: RootState) => state.cards.cards;
 
