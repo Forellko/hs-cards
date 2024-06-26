@@ -30,22 +30,22 @@ function Main() {
   const spellsSchool = useAppSelector(selectSpellsSchool);
 
   useEffect(() => {
-    const filtCards =
-      cards
-        .filter(
-          (card) => card.addition === additionSelect || additionSelect === 'Все'
-        )
-        .filter(
-          (card) => card.cardType === cardTypeSelect || cardTypeSelect === 'Все'
-        )
-        .filter((card) => card.classHero === classHero || classHero === 'Все')
-        .filter((card) => card.cost === cost || cost === 'Все')
-        .filter(
-          (card) => card.creationType === creationType || creationType === 'Все'
-        )
-        .filter((card) => card.rarity === rarity || rarity === 'Все')
-        .filter((card) => card.spellsSchool === spellsSchool) ||
-      spellsSchool === 'Все';
+    const filtCards = cards
+      .filter(
+        (card) => card.addition === additionSelect || additionSelect === 'Все'
+      )
+      .filter(
+        (card) => card.cardType === cardTypeSelect || cardTypeSelect === 'Все'
+      )
+      .filter((card) => card.classHero === classHero || classHero === 'Все')
+      .filter((card) => card.cost === cost || cost === 'Все')
+      .filter(
+        (card) => card.creationType === creationType || creationType === 'Все'
+      )
+      .filter((card) => card.rarity === rarity || rarity === 'Все')
+      .filter(
+        (card) => card.spellsSchool === spellsSchool || spellsSchool === 'Все'
+      );
 
     setFilteredCards(filtCards);
   }, [
