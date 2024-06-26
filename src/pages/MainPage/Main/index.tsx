@@ -50,15 +50,23 @@ function Main() {
       )
       .filter((card) => {
         if (search === '') return true;
-        const splitName = card.name.toLowerCase().split('');
+        let splitName = card.name.toLowerCase().split('');
         const splitSearch = search.toLowerCase().split('');
-        for (let index in splitName) {
-          if (splitName[index] === splitSearch[index]) {
-            if (splitSearch.length - 1 === +index) {
-              return true;
+        while (splitName.length !== 0) {
+          for (let index in splitName) {
+            if (splitName.length < splitSearch.length) {
+              return false;
             }
-          } else {
-            console.log(1);
+            if (splitName[index] === splitSearch[index]) {
+              if (splitSearch.length - 1 === +index) {
+                return true;
+              }
+            } else {
+              break;
+            }
+          }
+          splitName.shift();
+          if (splitName.length === 0) {
             return false;
           }
         }
