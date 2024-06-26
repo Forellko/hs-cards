@@ -1,10 +1,10 @@
-import Addition from './Addition';
-import CardType from './CardType';
-import ClassHero from './ClassHero';
-import Cost from './Cost';
-import CreationType from './CreationType';
-import Rarity from './Rarity';
-import SpellsSchool from './SpellsSchool';
+import Addition from './AdditionFilter';
+import CardType from './CardTypeFilter';
+import ClassHero from './ClassHeroFilter';
+import Cost from './CostFilter';
+import CreationType from './CreationTypeFilter';
+import Rarity from './RarityFilter';
+import SpellsSchool from './SpellsSchoolFilter';
 import style from './style.module.css';
 
 function Aside() {

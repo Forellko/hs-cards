@@ -11,15 +11,14 @@ const cardTypes: TCardType[] = [
   'Область',
 ];
 
-function Cost() {
-  const [cardType, setCardType] = useState<TCardType>('Все');
+interface Props {
+  cardType: TCardType;
+  setCardType: Function;
+}
 
+function CardType({ cardType, setCardType }: Props) {
   return (
-    <FormControl
-      fullWidth
-      sx={{ maxWidth: '300px', minWidth: '300px' }}
-      size="small"
-    >
+    <FormControl fullWidth size="small">
       <InputLabel id="demo-simple-select-label">Тип карты</InputLabel>
       <Select
         labelId="demo-simple-select-label"
@@ -38,4 +37,4 @@ function Cost() {
   );
 }
 
-export default Cost;
+export default CardType;

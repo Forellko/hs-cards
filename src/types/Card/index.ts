@@ -7,7 +7,7 @@ import TRarity from 'types/Rarity';
 import TSpellsSchool from 'types/SpellsSchool';
 
 interface ICard {
-  id: number;
+  id?: number;
   name: string;
   imageURL: string;
   description: string;
