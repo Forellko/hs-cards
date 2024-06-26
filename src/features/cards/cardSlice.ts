@@ -36,7 +36,6 @@ export const getAllCardsThunk = createAsyncThunk(
   'cards/getAllCards',
   async () => {
     const response = await GetAllCards();
-    console.log(response, 'thunk');
     return response;
   }
 );
@@ -86,6 +85,14 @@ export const {
 } = cardsSlice.actions;
 
 export const selectAddition = (state: RootState) => state.cards.addition;
+export const selectCardType = (state: RootState) => state.cards.cardType;
+export const selectClassHero = (state: RootState) => state.cards.classHero;
+export const selectCost = (state: RootState) => state.cards.cost;
+export const selectCreationType = (state: RootState) =>
+  state.cards.creationType;
+export const selectRarity = (state: RootState) => state.cards.rarity;
+export const selectSpellsSchool = (state: RootState) =>
+  state.cards.spellsSchool;
 
 export const selectCards = (state: RootState) => state.cards.cards;
 
